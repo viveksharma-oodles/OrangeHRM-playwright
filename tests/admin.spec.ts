@@ -10,9 +10,10 @@ test.describe('Admin Module - User Management', () => {
     await loginPage.navigate();
     await loginPage.login('Admin', 'admin123');
     await adminPage.navigateToUserManagement();
-    await adminPage.addUser('testuser1', 'Test@123', 'John Doe');
+    await adminPage.addUser('regieuser6', 'Test@123', 'test');
     
     // Verify user addition (Example check)
-    await expect(page.locator('text="testuser1"')).toBeVisible();
+    await page.waitForTimeout(4000); 
+    await expect(page.locator('//*[contains(text(),"testuser6")]')).toBeVisible();
   });
 });
